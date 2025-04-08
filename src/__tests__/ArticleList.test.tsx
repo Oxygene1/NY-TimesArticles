@@ -5,7 +5,13 @@ import { fetchMostPopularArticles } from "../services/nytimesApi";
 vi.mock("../services/nytimesApi");
 
 vi.mock("../components/ArticleItem", () => ({
-  ArticleItem: ({ article, onClick }) => (
+  ArticleItem: ({
+    article,
+    onClick,
+  }: {
+    article: any;
+    onClick: () => void;
+  }) => (
     <div data-testid="mock-article-item" onClick={onClick}>
       {article.title}
     </div>
@@ -19,7 +25,7 @@ vi.mock("../components/LoadingSpinner", () => ({
 }));
 
 vi.mock("../components/ErrorMessage", () => ({
-  ErrorMessage: ({ message }) => (
+  ErrorMessage: ({ message }: { message: string }) => (
     <div data-testid="mock-error-message">{message}</div>
   ),
 }));
@@ -31,12 +37,19 @@ const mockArticles = [
     abstract: "This is test article 1",
     byline: "By Test Author",
     published_date: "2023-01-01",
+    updated: "2023-01-01T12:00:00Z",
     url: "https://example.com/1",
+    section: "Technology",
+    subsection: "Tech News",
+    nytdsection: "technology",
+    adx_keywords: "Technology;Testing",
+    column: null,
     media: [],
     des_facet: [],
     org_facet: [],
     per_facet: [],
     geo_facet: [],
+    eta_id: 0,
   },
   {
     id: 2,
@@ -44,12 +57,19 @@ const mockArticles = [
     abstract: "This is test article 2",
     byline: "By Another Author",
     published_date: "2023-01-02",
+    updated: "2023-01-02T12:00:00Z",
     url: "https://example.com/2",
+    section: "Politics",
+    subsection: "Elections",
+    nytdsection: "politics",
+    adx_keywords: "Politics;Elections",
+    column: null,
     media: [],
     des_facet: [],
     org_facet: [],
     per_facet: [],
     geo_facet: [],
+    eta_id: 1,
   },
 ];
 

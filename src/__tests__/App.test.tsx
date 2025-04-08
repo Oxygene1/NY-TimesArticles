@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react"
 import { vi } from "vitest"
 import App from "../App"
 
-// Mock the child components
 vi.mock("../components/ArticleList", () => ({
   ArticleList: () => <div data-testid="mock-article-list">Article List Component</div>,
 }))

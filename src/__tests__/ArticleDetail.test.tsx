@@ -1,8 +1,9 @@
-import { render, screen, fireEvent } from "@testing-library/react"
-import { ArticleDetail } from "../components/ArticleDetail"
-import { describe, test, expect, vi } from "vitest"
+import { render, screen, fireEvent } from "@testing-library/react";
+import { ArticleDetail } from "../components/ArticleDetail";
+import { describe, test, expect, vi } from "vitest";
+import { Article } from "../types/Article";
 
-const mockArticle = {
+const mockArticle: Article = {
   id: 1,
   title: "Test Article",
   abstract: "This is a test article abstract",
@@ -15,49 +16,57 @@ const mockArticle = {
   org_facet: [],
   per_facet: [],
   geo_facet: [],
-}
+  updated: "2023-01-01",
+  subsection: "Tech News",
+  nytdsection: "technology",
+  adx_keywords: "Technology;Testing",
+  column: null,
+  eta_id: 0,
+};
 
 describe("ArticleDetail Component", () => {
   test("renders article title and abstract", () => {
-    render(<ArticleDetail article={mockArticle} onBack={() => {}} />)
+    render(<ArticleDetail article={mockArticle} onBack={() => {}} />);
 
-    expect(screen.getByText("Test Article")).toBeInTheDocument()
-    expect(screen.getByText("This is a test article abstract")).toBeInTheDocument()
-  })
+    expect(screen.getByText("Test Article")).toBeInTheDocument();
+    expect(
+      screen.getByText("This is a test article abstract")
+    ).toBeInTheDocument();
+  });
 
   test("renders back button", () => {
-    render(<ArticleDetail article={mockArticle} onBack={() => {}} />)
+    render(<ArticleDetail article={mockArticle} onBack={() => {}} />);
 
-    expect(screen.getByText("Back to list")).toBeInTheDocument()
-  })
+    expect(screen.getByText("Back to list")).toBeInTheDocument();
+  });
 
   test("calls onBack when back button is clicked", () => {
-    const mockBackFn = vi.fn()
-    render(<ArticleDetail article={mockArticle} onBack={mockBackFn} />)
+    const mockBackFn = vi.fn();
+    render(<ArticleDetail article={mockArticle} onBack={mockBackFn} />);
 
-    fireEvent.click(screen.getByText("Back to list"))
-    expect(mockBackFn).toHaveBeenCalled()
-  })
+    fireEvent.click(screen.getByText("Back to list"));
+    expect(mockBackFn).toHaveBeenCalled();
+  });
 
   test("renders article metadata", () => {
-    render(<ArticleDetail article={mockArticle} onBack={() => {}} />)
+    render(<ArticleDetail article={mockArticle} onBack={() => {}} />);
 
-    expect(screen.getByText("By Test Author")).toBeInTheDocument()
-    expect(screen.getByText("Technology")).toBeInTheDocument()
-  })
+    expect(screen.getByText("By Test Author")).toBeInTheDocument();
+    expect(screen.getByText("Technology")).toBeInTheDocument();
+  });
 
   test("renders topics when available", () => {
-    render(<ArticleDetail article={mockArticle} onBack={() => {}} />)
+    render(<ArticleDetail article={mockArticle} onBack={() => {}} />);
 
-    expect(screen.getByText("Topics")).toBeInTheDocument()
-    expect(screen.getByText("Topic 1")).toBeInTheDocument()
-    expect(screen.getByText("Topic 2")).toBeInTheDocument()
-  })
+    expect(screen.getByText("Topics")).toBeInTheDocument();
+    expect(screen.getByText("Topic 1")).toBeInTheDocument();
+    expect(screen.getByText("Topic 2")).toBeInTheDocument();
+  });
 
   test("renders read full article link", () => {
-    render(<ArticleDetail article={mockArticle} onBack={() => {}} />)
-    const link = screen.getByText("Read Full Article")
-    expect(link).toBeInTheDocument()
-    expect(link).toHaveAttribute("href", "https://example.com")
-  })
-})
+    render(<ArticleDetail article={mockArticle} onBack={() => {}} />);
+    const link = screen.getByText("Read Full Article");
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute("href", "https://example.com");
+  });
+});

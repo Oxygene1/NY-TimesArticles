@@ -8,11 +8,11 @@ interface ArticleItemProps {
 export function ArticleItem({ article, onClick }: ArticleItemProps) {
   return (
     <div
-      className="border rounded-lg p-4 hover:bg-gray-50 cursor-pointer transition-colors"
+      className="border rounded-lg p-3 md:p-4 hover:bg-gray-50 cursor-pointer transition-colors"
       onClick={onClick}
       data-testid="article-item"
     >
-      <div className="flex items-start gap-4">
+      <div className="flex flex-col md:flex-row items-start gap-4">
         {article.media.length > 0 && article.media[0]["media-metadata"] && (
           <img
             src={
