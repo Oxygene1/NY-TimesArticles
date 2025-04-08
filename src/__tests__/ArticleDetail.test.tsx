@@ -56,7 +56,6 @@ describe("ArticleDetail Component", () => {
 
   test("renders read full article link", () => {
     render(<ArticleDetail article={mockArticle} onBack={() => {}} />)
-
     const link = screen.getByText("Read Full Article")
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute("href", "https://example.com")

@@ -2,11 +2,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { vi, describe, test, expect } from "vitest";
 import { ArticleList } from "../components/ArticleList";
 import { fetchMostPopularArticles } from "../services/nytimesApi";
-
-// Mock the API service
 vi.mock("../services/nytimesApi");
 
-// Mock the child components
 vi.mock("../components/ArticleItem", () => ({
   ArticleItem: ({ article, onClick }) => (
     <div data-testid="mock-article-item" onClick={onClick}>
