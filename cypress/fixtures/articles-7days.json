@@ -1,0 +1,51 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2023 The New York Times Company. All Rights Reserved.",
+  "num_results": 1,
+  "results": [
+    {
+      "id": 100000008947512,
+      "title": "7 Days Article",
+      "abstract": "This is a 7-day most popular article",
+      "url": "https://www.nytimes.com/article2",
+      "byline": "By Test Author 2",
+      "published_date": "2023-04-02",
+      "section": "Business",
+      "des_facet": ["Finance", "Economy"],
+      "org_facet": ["New York Times"],
+      "per_facet": [],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Test caption 2",
+          "copyright": "image",
+          "subtype": "photo",
+          "caption": "Test caption 2",
+          "copyright": "Test copyright 2",
+          "media-metadata": [
+            {
+              "url": "https://via.placeholder.com/75",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://via.placeholder.com/150",
+              "format": "Medium",
+              "height": 150,
+              "width": 150
+            },
+            {
+              "url": "https://via.placeholder.com/600",
+              "format": "Large",
+              "height": 400,
+              "width": 600
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

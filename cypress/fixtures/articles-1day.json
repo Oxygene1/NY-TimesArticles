@@ -1,0 +1,48 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2023 The New York Times Company. All Rights Reserved.",
+  "num_results": 1,
+  "results": [
+    {
+      "id": 100000008947511,
+      "title": "1 Day Article",
+      "abstract": "This is a 1-day most popular article",
+      "url": "https://www.nytimes.com/article1",
+      "byline": "By Test Author 1",
+      "published_date": "2023-04-01",
+      "section": "Technology",
+      "des_facet": ["Computers", "Software"],
+      "org_facet": ["New York Times"],
+      "per_facet": [],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Test caption",
+          "copyright": "Test copyright",
+          "media-metadata": [
+            {
+              "url": "https://via.placeholder.com/75",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://via.placeholder.com/150",
+              "format": "Medium",
+              "height": 150,
+              "width": 150
+            },
+            {
+              "url": "https://via.placeholder.com/600",
+              "format": "Large",
+              "height": 400,
+              "width": 600
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
