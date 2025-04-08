@@ -12,20 +12,24 @@ export function ArticleItem({ article, onClick }: ArticleItemProps) {
       onClick={onClick}
       data-testid="article-item"
     >
-      <div className="flex flex-col md:flex-row items-start gap-4">
+      <div className="flex flex-col md:flex-row items-start gap-2 md:gap-4">
         {article.media.length > 0 && article.media[0]["media-metadata"] && (
           <img
             src={
               article.media[0]["media-metadata"][0].url || "/placeholder.svg"
             }
             alt={article.title}
-            className="w-20 h-20 object-cover rounded"
+            className="md:w-20 md:h-20 h-[160px] w-full md:object-cover rounded"
           />
         )}
         <div className="flex-1">
-          <h2 className="text-xl font-semibold mb-2">{article.title}</h2>
-          <p className="text-gray-600 mb-2">{article.abstract}</p>
-          <div className="flex justify-between text-sm text-gray-500">
+          <h2 className="md:text-xl text-[16px] font-[500] md:font-semibold mb-2">
+            {article.title}
+          </h2>
+          <p className="text-gray-600 text-[12px] md:text-sm mb-2">
+            {article.abstract}
+          </p>
+          <div className="flex justify-between text-[12px] md:text-sm text-gray-500">
             <span>{article.byline}</span>
             <span>{new Date(article.published_date).toLocaleDateString()}</span>
           </div>

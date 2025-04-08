@@ -23,7 +23,7 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 ">
+    <div className="md:container md:mx-auto px-3 py-5 md:px-4 md:py-8 antialiased">
       <header className="mb-8">
         <h1 className="text-3xl font-bold text-gray-800">
           NY Times Most Popular Articles
