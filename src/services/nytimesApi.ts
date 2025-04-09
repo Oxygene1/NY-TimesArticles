@@ -8,7 +8,7 @@ export async function fetchMostPopularArticles(
 ): Promise<Article[]> {
   try {
     const response = await fetch(
-      `${BASE_URL}/${period}.json?api-key=${API_KEY}`
+      `${BASE_URL}/viewed/${period}.json?api-key=${API_KEY}`
     );
 
     if (!response.ok) {

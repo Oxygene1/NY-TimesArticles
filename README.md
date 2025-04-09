@@ -8,20 +8,21 @@ A React application that displays the NY Times Most Popular Articles using the N
 - Filter articles by time period (1, 7, or 30 days)
 - Responsive design for mobile and desktop
 - Detailed view for each article with additional information
-- Error handling and loading states
+- Error handling and loading states with Shadcn UI Skeleton
+- Modern UI with Tailwind CSS and Shadcn UI components
 
 ## Tech Stack
 
-- React 18 with TypeScript
+- React 19 with TypeScript
 - Vite for fast development and building
 - Tailwind CSS for styling
+- Shadcn UI for components
 - Vitest and React Testing Library for unit tests
-- Cypress for end-to-end testing
 - ESLint and Prettier for code quality
 
 ## Prerequisites
 
-- Node.js (v16 or higher)
+- Node.js (v18 or higher)
 - npm or yarn
 - NY Times API Key (get one at https://developer.nytimes.com/get-started)
 
@@ -36,8 +37,6 @@ git clone https://github.com/Oxygene1/NY-TimesArticles.git
 2. Install dependencies:
 
 \`\`\`bash
-npm install
-# or
 yarn
 \`\`\`
 
@@ -45,6 +44,7 @@ yarn
 
 \`\`\`
 VITE_NYTIMES_API_KEY=your_api_key_here
+VITE_BASE_URL=https://api.nytimes.com/svc/mostpopular/v2
 \`\`\`
 
 ## Running the Application
@@ -52,8 +52,6 @@ VITE_NYTIMES_API_KEY=your_api_key_here
 To start the development server:
 
 \`\`\`bash
-npm run dev
-# or
 yarn dev
 \`\`\`
 
@@ -64,63 +62,39 @@ The application will be available at http://localhost:5173
 To create a production build:
 
 \`\`\`bash
-npm run build
-# or
 yarn build
 \`\`\`
 
 To preview the production build locally:
 
 \`\`\`bash
-npm run preview
-# or
 yarn preview
 \`\`\`
 
 ## Testing
 
-### Unit Tests
-
 Run unit tests:
 
 \`\`\`bash
-npm run test
-# or
 yarn test
 \`\`\`
 
 Run unit tests in watch mode:
 
 \`\`\`bash
-npm run test:watch
-# or
 yarn test:watch
+\`\`\`
+
+Run unit tests with UI:
+
+\`\`\`bash
+yarn test:ui
 \`\`\`
 
 Generate test coverage report:
 
 \`\`\`bash
-npm run test:coverage
-# or
 yarn test:coverage
-\`\`\`
-
-### End-to-End Tests
-
-Run Cypress tests in headless mode:
-
-\`\`\`bash
-npm run test:e2e
-# or
-yarn test:e2e
-\`\`\`
-
-Open Cypress Test Runner:
-
-\`\`\`bash
-npm run test:e2e:open
-# or
-yarn test:e2e:open
 \`\`\`
 
 ## Code Quality
@@ -128,8 +102,6 @@ yarn test:e2e:open
 Run ESLint:
 
 \`\`\`bash
-npm run lint
-# or
 yarn lint
 \`\`\`
 
@@ -137,24 +109,24 @@ yarn lint
 
 \`\`\`
 nytimes-most-popular/
-├── cypress/                # Cypress E2E tests
-│   ├── e2e/                # Test specs
-│   └── fixtures/           # Test data
-├── public/                 # Static assets
-├── src/                    # Source code
-│   ├── components/         # React components
-│   ├── services/           # API services
-│   ├── types/              # TypeScript type definitions
-│   ├── __tests__/          # Unit tests
-│   ├── App.tsx             # Main App component
-│   └── main.tsx            # Entry point
-├── .env                    # Environment variables (not committed)
-├── .eslintrc.json         # ESLint configuration
-├── cypress.config.ts      # Cypress configuration
-├── package.json           # Project dependencies and scripts
-├── tailwind.config.js     # Tailwind CSS configuration
-├── tsconfig.json          # TypeScript configuration
-└── vite.config.ts         # Vite configuration
+├── cypress/ # Cypress E2E tests
+│ ├── e2e/ # Test specs
+│ └── fixtures/ # Test data
+├── public/ # Static assets
+├── src/ # Source code
+│ ├── components/ # React components
+│ ├── services/ # API services
+│ ├── types/ # TypeScript type definitions
+│ ├── **tests**/ # Unit tests
+│ ├── App.tsx # Main App component
+│ └── main.tsx # Entry point
+├── .env # Environment variables (not committed)
+├── .eslintrc.json # ESLint configuration
+├── cypress.config.ts # Cypress configuration
+├── package.json # Project dependencies and scripts
+├── tailwind.config.js # Tailwind CSS configuration
+├── tsconfig.json # TypeScript configuration
+└── vite.config.ts # Vite configuration
 \`\`\`
 
 ## Design Decisions
@@ -187,10 +159,14 @@ MIT
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NY Times Most Popular Articles</title>
-    <meta name="description" content="Browse the most popular articles from The New York Times" />
+    <meta
+      name="description"
+      content="Browse the most popular articles from The New York Times"
+    />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+```
