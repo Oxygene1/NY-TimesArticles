@@ -137,18 +137,9 @@ nytimes-most-popular/
 4. **Testing Strategy**: Combined unit tests for component logic and E2E tests for critical user flows.
 5. **Responsive Design**: Used Tailwind CSS to create a responsive layout that works well on all device sizes.
 
-## Future Improvements
-
-- Add search functionality
-- Implement caching for API responses
-- Add pagination for large result sets
-- Implement dark mode
-- Add more filter options (by section, author, etc.)
-- Add accessibility improvements (keyboard navigation, screen reader support)
-
 ## License
 
-MIT
+Ibrahim Abdulganiyu
 \`\`\`
 
 ```html file="index.html"
