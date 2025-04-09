@@ -15,27 +15,17 @@ describe("NY Times Most Popular Articles App", () => {
   })
 
   it("shows loading state when fetching articles", () => {
-    // Intercept API calls to control the response
     cy.intercept("GET", "**/viewed/1.json*", {
       delay: 1000,
       fixture: "articles.json",
     }).as("getArticles")
-
-    // Reload to trigger the API call
     cy.reload()
-
-    // Check if loading spinner appears
     cy.get('[data-testid="loading-spinner"]').should("be.visible")
-
-    // Wait for the API call to complete
     cy.wait("@getArticles")
-
-    // Loading spinner should disappear
     cy.get('[data-testid="loading-spinner"]').should("not.exist")
   })
 
   it("displays articles after loading", () => {
-    // Intercept API calls with mock data
     cy.intercept("GET", "**/viewed/1.json*", { fixture: "articles.json" }).as("getArticles")
 
     cy.reload()
@@ -79,7 +69,6 @@ describe("NY Times Most Popular Articles App", () => {
   })
 
   it("shows error message when API call fails", () => {
-    // Intercept API calls with error response
     cy.intercept("GET", "**/viewed/1.json*", {
       statusCode: 500,
       body: { error: "Server error" },
@@ -87,8 +76,6 @@ describe("NY Times Most Popular Articles App", () => {
 
     cy.reload()
     cy.wait("@getArticlesError")
-
-    // Check if error message is displayed
     cy.get('[data-testid="error-message"]').should("be.visible")
   })
 })

@@ -18,10 +18,8 @@ vi.mock("../components/ArticleItem", () => ({
   ),
 }));
 
-vi.mock("../components/LoadingSpinner", () => ({
-  LoadingSpinner: () => (
-    <div data-testid="mock-loading-spinner">Loading...</div>
-  ),
+vi.mock("../components/ui/skeleton", () => ({
+  Skeleton: () => <div data-testid="mock-skeleton">Loading...</div>,
 }));
 
 vi.mock("../components/ErrorMessage", () => ({
@@ -76,30 +74,22 @@ const mockArticles = [
 describe("ArticleList Component", () => {
   test("shows loading state initially", () => {
     vi.mocked(fetchMostPopularArticles).mockResolvedValue([]);
-
     render(<ArticleList timePeriod="1" onSelectArticle={() => {}} />);
-
-    expect(screen.getByTestId("mock-loading-spinner")).toBeInTheDocument();
+    expect(screen.getByTestId("mock-skeleton")).toBeInTheDocument();
   });
-
   test("renders articles when loaded successfully", async () => {
     vi.mocked(fetchMostPopularArticles).mockResolvedValue(mockArticles);
-
     render(<ArticleList timePeriod="1" onSelectArticle={() => {}} />);
-
     await waitFor(() => {
       expect(screen.getByText("Test Article 1")).toBeInTheDocument();
       expect(screen.getByText("Test Article 2")).toBeInTheDocument();
     });
   });
-
   test("shows error message when API call fails", async () => {
     vi.mocked(fetchMostPopularArticles).mockRejectedValue(
       new Error("API Error")
     );
-
     render(<ArticleList timePeriod="1" onSelectArticle={() => {}} />);
-
     await waitFor(() => {
       expect(screen.getByTestId("mock-error-message")).toBeInTheDocument();
     });
